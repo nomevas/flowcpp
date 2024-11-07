@@ -67,6 +67,7 @@ std::string to_string(counter_action_type type) {
     case counter_action_type::thunk:
       return "thunk";
   }
+  return "none";
 }
 
 auto logging_middleware = [](flow::basic_middleware<counter_state>) {

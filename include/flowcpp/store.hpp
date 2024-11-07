@@ -1,6 +1,7 @@
 #pragma once
 
-#include <experimental/optional>
+#include <optional>
+#include <algorithm>
 #include <unordered_map>
 
 #include "common.h"
@@ -43,7 +44,7 @@ class basic_store {
 
  private:
   static basic_store<state_t> create(const std::function<state_t(state_t, action)> reducer, const state_t initial_state,
-                                     const std::experimental::optional<action> initial_action) {
+                                     const std::optional<action> initial_action) {
     auto state = (initial_action) ? reducer(initial_state, *initial_action) : initial_state;
     return basic_store<state_t>(reducer, state);
   }
